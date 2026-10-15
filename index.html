@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flower Resources | Flower Shop Management</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --pink: #e75480;
+    --dark: #35252d;
+    --light: #f3f4ff;
+    --blue: #386641;
+    --white: #0a665a;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fffafa;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: white;
+    padding: 15px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-shadow: 0 2px 12px #00000012;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: var(--pink);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--pink);
+}
+
+.cart-button {
+    background: var(--pink);
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.hero {
+    min-height: 480px;
+    padding: 70px 8%;
+    display: flex;
+    align-items: center;
+    background:
+      linear-gradient(90deg, #24131dcc, #24131d55),
+      url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1800&q=85")
+      center/cover;
+    color: white;
+}
+
+.hero-content {
+    max-width: 620px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 5vw, 60px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 6px;
+    background: var(--pink);
+    color: white;
+    padding: 12px 22px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn:hover {
+    background: #c83d68;
+}
+
+section {
+    padding: 65px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    color: var(--dark);
+}
+
+.section-title p {
+    color: #777;
+    margin-top: 8px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 20px;
+}
+
+.feature {
+    background: peachpuff;
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px #0000000c;
+}
+
+.feature .emoji {
+    font-size: 38px;
+}
+
+.feature h3 {
+    margin: 10px 0;
+    color: var(--green);
+}
+
+.shop {
+    background: var(--light);
+}
+
+.shop-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.shop-controls input,
+.shop-controls select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    min-width: 210px;
+    font-size: 15px;
+    background: white;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.product {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px #00000012;
+    transition: transform 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.product-info {
+    padding: 18px;
+}
+
+.product-info h3 {
+    color: var(--dark);
+    margin-bottom: 6px;
+}
+
+.category {
+    color: #777;
+    font-size: 13px;
+}
+
+.price {
+    color: var(--pink);
+    font-size: 21px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-info .btn {
+    width: 100%;
+}
+
+.stock {
+    font-size: 13px;
+    color: var(--green);
+    margin-bottom: 10px;
+}
+
+.resources {
+    background: white;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.resource-card {
+    padding: 25px;
+    border: 1px solid #f2dbe4;
+    border-radius: 12px;
+    background: #fffafd;
+}
+
+.resource-card h3 {
+    color: var(--pink);
+    margin-bottom: 10px;
+}
+
+.resource-card p {
+    margin-bottom: 8px;
+}
+
+.cart-section {
+    background: #fff3f7;
+}
+
+.cart-container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 16px #0000000c;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+th, td {
+    padding: 13px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+th {
+    background: #fff3f7;
+}
+
+.quantity-btn, .remove-btn {
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.quantity-btn {
+    background: #f7dce6;
+}
+
+.remove-btn {
+    background: #ffe0e0;
+    color: #a00;
+}
+
+.bill-total {
+    max-width: 350px;
+    margin: 25px 0 0 auto;
+}
+
+.bill-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+}
+
+.bill-row.total {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--pink);
+    border-top: 2px solid #eee;
+    padding-top: 12px;
+}
+
+.empty {
+    padding: 20px;
+    text-align: center;
+    color: #777;
+}
+
+.about {
+    background: white;
+}
+
+.about-content {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content p {
+    margin: 15px 0;
+}
+
+.contact {
+    background: var(--light);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+    background: pink;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.contact-form textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+footer a {
+    color: #ffb7cf;
+    text-decoration: none;
+}
+
+#topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    border-radius: 50%;
+    background: var(--pink);
+    color:var(--pink);
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+    z-index: 99;
+}
+
+@media(max-width: 650px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 60px 7%;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #cart, #cart * {
+        visibility: visible;
+    }
+
+    #cart {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: white;
+    }
+
+    #cart .no-print {
+        display: none !important;
+    }
+
+    #cart table {
+        min-width: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌸 Flower Resources</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#shop">Flowers</a>
+        <a href="#resources">Resources</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="cart-button"
+        onclick="document.getElementById('cart').scrollIntoView({behavior:'smooth'})">
+        🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Flowers Make Every Moment Special</h1>
+        <p>
+            Welcome to Flower Resources — your online flower shop for
+            beautiful bouquets, fresh roses, birthday gifts and special
+            occasion flowers.
+        </p>
+        <a href="#shop" class="btn">Explore Flowers 🌷</a>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+    <div class="section-title">
+        <h2>Why Choose Us?</h2>
+        <p>Beautiful flowers and friendly service for every occasion.</p>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <div class="emoji">🌹</div>
+            <h3>Fresh Flowers</h3>
+            <p>Choose from a beautiful variety of flowers.</p>
+        </div>
+
+        <div class="feature">
+            <div class="emoji">💐</div>
+            <h3>Beautiful Bouquets</h3>
+            <p>Perfect flower arrangements for your loved ones.</p>
+        </div>
+
+        <div class="feature">
+            <div class="emoji">💰</div>
+            <h3>Easy Billing</h3>
+            <p>Automatic calculation of quantities and total price.</p>
+        </div>
+
+        <div class="feature">
+            <div class="emoji">🌱</div>
+            <h3>Flower Care</h3>
+            <p>Learn how to care for flowers and plants.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FLOWER SHOP -->
+<section class="shop" id="shop">
+    <div class="section-title">
+        <h2>Our Flower Collection</h2>
+        <p>Select flowers, add them to your cart and generate your bill.</p>
+    </div>
+
+    <div class="shop-controls">
+        <input
+            type="search"
+            id="search"
+            placeholder="Search flowers..."
+            aria-label="Search flowers">
+
+        <select id="category" aria-label="Filter by category">
+            <option value="All">All Categories</option>
+            <option value="Roses">Roses</option>
+            <option value="Bouquets">Bouquets</option>
+            <option value="Seasonal">Seasonal Flowers</option>
+            <option value="Plants">Plants</option>
+        </select>
+    </div>
+
+    <div class="products" id="products"></div>
+</section>
+
+<!-- RESOURCES -->
+<section class="resources" id="resources">
+    <div class="section-title">
+        <h2>Flower Resources & Information</h2>
+        <p>Learn about flower varieties, uses and maintenance.</p>
+    </div>
+
+    <div class="resource-grid">
+        <div class="resource-card">
+            <h3>🌹 Rose</h3>
+            <p><b>Type:</b> Flowering plant</p>
+            <p><b>Uses:</b> Gifts, weddings and decoration.</p>
+            <p><b>Care:</b> Provide adequate sunlight and water the soil
+            when needed.</p>
+        </div>
+
+        <div class="resource-card">
+            <h3>🌻 Sunflower</h3>
+            <p><b>Type:</b> Annual flowering plant</p>
+            <p><b>Uses:</b> Garden decoration and bouquets.</p>
+            <p><b>Care:</b> Grow in a sunny location with well-drained soil.</p>
+        </div>
+
+        <div class="resource-card">
+            <h3>🌼 Marigold</h3>
+            <p><b>Type:</b> Flowering annual</p>
+            <p><b>Uses:</b> Festivals, garlands and decorations.</p>
+            <p><b>Care:</b> Give sunlight and avoid waterlogged soil.</p>
+        </div>
+
+        <div class="resource-card">
+            <h3>🌷 Tulip</h3>
+            <p><b>Type:</b> Bulb-grown flowering plant</p>
+            <p><b>Uses:</b> Gardens and ornamental arrangements.</p>
+            <p><b>Care:</b> Use suitable soil and climate conditions for the
+            variety.</p>
+        </div>
+
+        <div class="resource-card">
+            <h3>💧 Flower Maintenance</h3>
+            <p>Use a clean vase, fresh water and a clean cutting tool.
+            Remove leaves below the waterline and replace the water regularly.</p>
+        </div>
+
+        <div class="resource-card">
+            <h3>📦 Shop Resources</h3>
+            <p>Maintain product names, stock quantities, selling prices
+            and sales records to organize a flower shop efficiently.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SHOPPING CART AND BILL -->
+<section class="cart-section" id="cart">
+    <div class="section-title">
+        <h2>Shopping Cart & Billing</h2>
+        <p>Review your order and calculate the bill.</p>
+    </div>
+
+    <div class="cart-container">
+        <div id="cartItems"></div>
+
+        <div class="bill-total">
+            <div class="bill-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₹0.00</span>
+            </div>
+
+            <div class="bill-row">
+                <span>GST (5%)</span>
+                <span id="tax">₹0.00</span>
+            </div>
+
+            <div class="bill-row total">
+                <span>Total</span>
+                <span id="total">₹0.00</span>
+            </div>
+
+            <div class="no-print" style="margin-top:18px">
+                <button class="btn" onclick="checkout()">Checkout</button>
+                <button class="btn" onclick="printBill()"
+                    style="background:#386641;margin-top:8px">
+                    Print Bill
+                </button>
+                <button class="btn" onclick="clearCart()"
+                    style="background:#777;margin-top:8px">
+                    Clear Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="section-title">
+        <h2>About Our Project</h2>
+    </div>
+
+    <div class="about-content">
+        <p>
+            <b>Flower Resources — Flower Shop Management System</b> is a
+            student web development project created using HTML, CSS and
+            JavaScript. It demonstrates how an online flower shop can display
+            products, organize categories, manage a shopping cart and calculate
+            customer bills.
+        </p>
+
+        <p>
+            The project also provides information about flowers, their uses
+            and basic care instructions. It is designed to make the shopping
+            experience simple, attractive and user-friendly.
+        </p>
+
+        <p>
+            <b>Project Modules:</b> Home, Flower Catalogue, Search,
+            Categories, Cart Management, Billing, Flower Resources,
+            About Us and Contact.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Send us your questions or flower enquiries.</p>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+        <label for="customerName">Your Name</label>
+        <input type="text" id="customerName" required
+            placeholder="Enter your name">
+
+        <label for="customerEmail">Email Address</label>
+        <input type="email" id="customerEmail" required
+            placeholder="Enter your email">
+
+        <label for="message">Your Message</label>
+        <textarea id="message" required
+            placeholder="Write your message here"></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+
+        <p id="contactStatus" style="margin-top:12px"></p>
+    </form>
+</section>
+
+<footer>
+    <p>🌸 <b>Flower Resources</b> — Flower Shop Management System</p>
+    <p>Fresh flowers, beautiful moments.</p>
+    <p>© <span id="year"></span> Flower Resources. Student Project.</p>
+</footer>
+
+<button id="topBtn" title="Back to top"
+    aria-label="Back to top">↑</button>
+
+<script>
+// FLOWER PRODUCT DATABASE
+const flowerProducts = [
+    {
+        id: 1,
+        name: "Red Rose",
+        category: "Roses",
+        price: 50,
+        stock: 100,
+        image: "photo-1518895949257-7621c3c786d7",
+        description: "A classic symbol of love."
+    },
+    {
+        id: 2,
+        name: "Pink Rose",
+        category: "Roses",
+        price: 45,
+        stock: 80,
+        image: "photo-1494972308805-463bc619d34e",
+        description: "Beautiful soft pink roses."
+    },
+    {
+        id: 3,
+        name: "White Rose",
+        category: "Roses",
+        price: 40,
+        stock: 70,
+        image: "photo-1563241527-3004b7be0ffd",
+        description: "Elegant white roses."
+    },
+    {
+        id: 4,
+        name: "Rose Bouquet",
+        category: "Bouquets",
+        price: 650,
+        stock: 20,
+        image: "photo-1525310072745-f49212b5ac6d",
+        description: "A bouquet for special moments."
+    },
+    {
+        id: 5,
+        name: "Sunflower",
+        category: "Seasonal",
+        price: 80,
+        stock: 45,
+        image: "photo-1470509037663-253afd7f0f51",
+        description: "Bright and cheerful flowers."
+    },
+    {
+        id: 6,
+        name: "Tulip Bouquet",
+        category: "Bouquets",
+        price: 750,
+        stock: 15,
+        image: "photo-1520763185298-1b434c919102",
+        description: "A colourful tulip arrangement."
+    },
+    {
+        id: 7,
+        name: "Mixed Flowers",
+        category: "Bouquets",
+        price: 500,
+        stock: 25,
+        image: "photo-1490750967868-88aa4486c946",
+        description: "A colourful mixed flower bouquet."
+    },
+    {
+        id: 8,
+        name: "Marigold",
+        category: "Seasonal",
+        price: 30,
+        stock: 150,
+        image: "photo-1508610048659-a06b669e3321",
+        description: "Ideal for decorations and garlands."
+    },
+    {
+        id: 9,
+        name: "Orchid Plant",
+        category: "Plants",
+        price: 450,
+        stock: 18,
+        image: "photo-1452800185063-6db5e12b8e2e",
+        description: "An ornamental flowering plant."
+    },
+    {
+        id: 10,
+        name: "Lily Bouquet",
+        category: "Bouquets",
+        price: 600,
+        stock: 22,
+        image: "photo-1526047932273-341f2a7631f9",
+        description: "Elegant lilies for celebrations."
+    },
+    {
+        id: 11,
+        name: "Garden Flowers",
+        category: "Seasonal",
+        price: 120,
+        stock: 40,
+        image: "photo-1497250681960-ef046c08a56e",
+        description: "Lovely flowers for your garden."
+    },
+    {
+        id: 12,
+        name: "Indoor Green Plant",
+        category: "Plants",
+        price: 250,
+        stock: 30,
+        image: "photo-1485955900006-10f4d324d411",
+        description: "A decorative plant for your home."
+    }
+];
+
+// Shopping cart stored for the current browser session.
+let cart = [];
+
+const productsContainer = document.getElementById("products");
+const cartItemsContainer = document.getElementById("cartItems");
+
+function money(amount) {
+    return "₹" + amount.toLocaleString("en-IN", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
+
+// DISPLAY FLOWER PRODUCTS
+function displayProducts() {
+    const searchTerm = document.getElementById("search")
+        .value.trim().toLowerCase();
+
+    const selectedCategory = document.getElementById("category").value;
+
+    const filteredProducts = flowerProducts.filter(product => {
+        const matchesSearch =
+            product.name.toLowerCase().includes(searchTerm) ||
+            product.category.toLowerCase().includes(searchTerm);
+
+        const matchesCategory =
+            selectedCategory === "All" ||
+            product.category === selectedCategory;
+
+        return matchesSearch && matchesCategory;
+    });
+
+    if (filteredProducts.length === 0) {
+        productsContainer.innerHTML =
+            '<p class="empty">No flowers found. Try another search.</p>';
+        return;
+    }
+
+    productsContainer.innerHTML = filteredProducts.map(product => `
+        <article class="product">
+            <img
+                src="https://images.unsplash.com/${product.image}?auto=format&fit=crop&w=600&q=80"
+                alt="${product.name}"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x400/fce7ef/78344c?text=Flower'">
+
+            <div class="product-info">
+                <h3>${product.name}</h3>
+                <p class="category">${product.category}</p>
+                <p>${product.description}</p>
+                <p class="price">${money(product.price)}</p>
+                <p class="stock">Available stock: ${product.stock}</p>
+                <button class="btn"
+                    onclick="addToCart(${product.id})"
+                    ${product.stock === 0 ? "disabled" : ""}>
+                    Add to Cart
+                </button>
+            </div>
+        </article>
+    `).join("");
+}
+
+// ADD ITEMS TO CART
+function addToCart(id) {
+    const product = flowerProducts.find(item => item.id === id);
+    const cartItem = cart.find(item => item.id === id);
+
+    const currentQuantity = cartItem ? cartItem.quantity : 0;
+
+    if (currentQuantity >= product.stock) {
+        alert("Sorry, the available stock limit has been reached.");
+        return;
+    }
+
+    if (cartItem) {
+        cartItem.quantity++;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: 1
+        });
+    }
+
+    renderCart();
+}
+
+// CHANGE ITEM QUANTITY
+function changeQuantity(id, amount) {
+    const item = cart.find(product => product.id === id);
+    const product = flowerProducts.find(product => product.id === id);
+
+    if (!item) return;
+
+    if (amount > 0 && item.quantity >= product.stock) {
+        alert("No more stock available.");
+        return;
+    }
+
+    item.quantity += amount;
+
+    if (item.quantity <= 0) {
+        cart = cart.filter(product => product.id !== id);
+    }
+
+    renderCart();
+}
+
+// REMOVE ITEM
+function removeItem(id) {
+    cart = cart.filter(item => item.id !== id);
+    renderCart();
+}
+
+// CALCULATE TOTALS AND DISPLAY BILL
+function renderCart() {
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    const subtotal = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+    );
+
+    const tax = subtotal * 0.05;
+    const total = subtotal + tax;
+
+    document.getElementById("cartCount").textContent = count;
+    document.getElementById("subtotal").textContent = money(subtotal);
+    document.getElementById("tax").textContent = money(tax);
+    document.getElementById("total").textContent = money(total);
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML =
+            '<p class="empty">Your cart is empty. Add some beautiful flowers!</p>';
+        return;
+    }
+
+    cartItemsContainer.innerHTML = `
+        <table>
+            <thead>
+                <tr>
+                    <th>Flower</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                    <th class="no-print">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${cart.map(item => `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${money(item.price)}</td>
+                        <td>
+                            <button class="quantity-btn no-print"
+                                onclick="changeQuantity(${item.id}, -1)"
+                                aria-label="Decrease quantity">−</button>
+                            ${item.quantity}
+                            <button class="quantity-btn no-print"
+                                onclick="changeQuantity(${item.id}, 1)"
+                                aria-label="Increase quantity">+</button>
+                        </td>
+                        <td>${money(item.price * item.quantity)}</td>
+                        <td class="no-print">
+                            <button class="remove-btn"
+                                onclick="removeItem(${item.id})">
+                                Remove
+                            </button>
+                        </td>
+                    </tr>
+                `).join("")}
+            </tbody>
+        </table>
+    `;
+}
+
+// CHECKOUT
+function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty. Please add flowers first.");
+        return;
+    }
+
+    const subtotal = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+    );
+
+    const tax = subtotal * 0.05;
+    const total = subtotal + tax;
+
+    const confirmed = confirm(
+        "Confirm your order?\n\n" +
+        "Items: " + cart.reduce((sum, item) => sum + item.quantity, 0) +
+        "\nSubtotal: " + money(subtotal) +
+        "\nGST (5%): " + money(tax) +
+        "\nTotal: " + money(total) +
+        "\n\nThis is a demonstration checkout; no payment will be collected."
+    );
+
+    if (!confirmed) return;
+
+    // Reduce stock for this demonstration.
+    cart.forEach(item => {
+        const product = flowerProducts.find(p => p.id === item.id);
+        if (product) {
+            product.stock -= item.quantity;
+        }
+    });
+
+    const orderNumber = "FR-" + Date.now().toString().slice(-8);
+
+    alert(
+        "Order placed successfully!\n" +
+        "Order Number: " + orderNumber +
+        "\nAmount: " + money(total) +
+        "\n\nYou can print your bill before clearing the cart."
+    );
+
+    displayProducts();
+    clearCart();
+}
+
+// PRINT BILL
+function printBill() {
+    if (cart.length === 0) {
+        alert("Your cart is empty. There is no bill to print.");
+        return;
+    }
+
+    window.print();
+}
+
+// CLEAR CART
+function clearCart() {
+    cart = [];
+    renderCart();
+}
+
+// SEARCH AND FILTER EVENTS
+document.getElementById("search").addEventListener(
+    "input", displayProducts
+);
+
+document.getElementById("category").addEventListener(
+    "change", displayProducts
+);
+
+// CONTACT FORM DEMONSTRATION
+document.getElementById("contactForm").addEventListener(
+    "submit", function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("customerName").value.trim();
+
+        document.getElementById("contactStatus").textContent =
+            "Thank you, " + name +
+            "! Your demo message has been accepted in this page.";
+
+        this.reset();
+    }
+);
+
+// BACK TO TOP BUTTON
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+    topBtn.style.display = window.scrollY > 350 ? "block" : "none";
+});
+
+topBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// AUTOMATIC COPYRIGHT YEAR
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// INITIALIZE WEBSITE
+displayProducts();
+renderCart();
+</script>
+
+</body>
+</html>
+</body>
+</html>
